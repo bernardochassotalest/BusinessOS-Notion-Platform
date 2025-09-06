@@ -113,6 +113,13 @@ Este projeto visa implementar um sistema operacional de negócios centralizado n
   - Recomendação para aprovação
   - Critérios de decisão executiva
 
+### 🔧 Análises Técnicas
+- **[Análise de Alternativas Técnicas](docs/technical/Technical-Alternatives-Analysis.md)**
+  - Comparativo Notion EE vs Monday.com EE
+  - Matriz de decisão técnica ponderada
+  - Análise de ROI com licenças Enterprise
+  - Recomendação técnica final: Monday.com EE
+
 ---
 
 ## 🚀 Próximos Passos
