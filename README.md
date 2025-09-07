@@ -173,11 +173,29 @@ Após consolidação da jornada do colaborador, implementação de:
 4. **✅ Dados de Teste** - 4 colaboradores, 1 cliente, 1 projeto inseridos
 5. **✅ Validação MCP** - Todas as operações validadas via API
 
-### Fase 2: Próximos Passos (10-13 Set 2025)
-1. **Implementação MAPA_COMPETENCIAS** - Expansão das competências
-2. **Templates e Automações** - Criação de templates padrão
-3. **Dashboards Executivos** - Configuração de views e filtros
-4. **Treinamento da Equipe** - Onboarding dos usuários finais
+### ✅ Fase 1.5: Sistema de Permissões (CONCLUÍDA)
+- [x] Documentação de níveis de acesso implementada
+- [x] Estrutura da base COLABORADORES atualizada com campos sensíveis
+- [x] Sistema de permissões configurado no Notion
+- [x] Controles de privacidade LGPD implementados
+- [x] Validação técnica via MCP API concluída
+
+### Fase 2: Expansão das Bases (Semana 2)
+- [ ] Criar base AVALIACOES_PERFORMANCE
+- [ ] Implementar base FEEDBACK_360  
+- [ ] Desenvolver base PDI_COLABORADORES
+- [ ] Configurar base PESQUISAS_CLIMA
+
+### Fase 3: Automações e Integrações (Semana 3)
+- [ ] Implementar workflows automatizados
+- [ ] Configurar notificações inteligentes
+- [ ] Desenvolver dashboards executivos
+- [ ] Integrar com sistemas externos e filtros
+
+### Fase 4: Treinamento da Equipe (Semana 4)
+- [ ] Onboarding dos usuários finais
+- [ ] Treinamento de uso do sistema
+- [ ] Suporte e acompanhamento
 
 ---
 
@@ -231,6 +249,7 @@ Após consolidação da jornada do colaborador, implementação de:
 |--------|------|-------|------------|
 | 1.0 | 06/09/2025 | Bernardo Chassot | Documentação inicial completa |
 | 1.1 | 07/09/2025 | Bernardo Chassot | ✅ Fase 1 implementada - Sistema operacional com dados reais |
+| 1.2 | 07/09/2025 | Bernardo Chassot | ✅ Sistema de permissões e privacidade implementado |
 
 ---
 
@@ -241,6 +260,7 @@ Após consolidação da jornada do colaborador, implementação de:
 - [Base CLIENTES](https://www.notion.so/267d61744f45819a88b3ede4ed2003ba)
 - [Base PROJETOS](https://www.notion.so/267d61744f458138ac42f36c8c7dc277)
 - [Base ATIVIDADES](https://www.notion.so/267d61744f458120821a7f56dc2e61a6b)
+- [Base MAPA_COMPETENCIAS](https://www.notion.so/267d61744f4581b3811fdc180b86ab7a)
 
 ---
 
