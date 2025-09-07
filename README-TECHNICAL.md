@@ -26,17 +26,130 @@
 
 ### 🔗 Relacionamentos Bidirecionais
 
-```
-COLABORADORES ↔ MAPA_COMPETENCIAS (1:N)
-COLABORADORES ↔ AVALIACOES_PERFORMANCE (1:N)
-COLABORADORES ↔ PLANO_QUARTER (1:N)
-COLABORADORES ↔ FEEDBACK_360 (1:N)
-CLIENTES ↔ PROJETOS (1:N)
-PROJETOS ↔ ATIVIDADES (1:N)
-COLABORADORES ↔ ATIVIDADES (N:N)
+```mermaid
+erDiagram
+    COLABORADORES {
+        string id PK
+        string nome
+        string email
+        string departamento
+        string cargo
+        date data_admissao
+    }
+    
+    MAPA_COMPETENCIAS {
+        string id PK
+        string ferramenta
+        int nivel_proficiencia
+        string categoria
+    }
+    
+    CLIENTES {
+        string id PK
+        string nome_empresa
+        string cnpj
+        string status_pipeline
+        decimal valor_contrato
+    }
+    
+    PROJETOS {
+        string id PK
+        string nome_projeto
+        string tipo
+        date data_inicio
+        date data_fim
+        string status
+    }
+    
+    ATIVIDADES {
+        string id PK
+        string nome_atividade
+        string tipo_atividade
+        datetime data_agendamento
+        int duracao
+        string status
+    }
+    
+    AVALIACOES_PERFORMANCE {
+        string id PK
+        int trimestre
+        int ano
+        decimal nota_final
+        string status
+        text feedback_gestor
+    }
+    
+    PLANO_QUARTER {
+        string id PK
+        int trimestre
+        int ano
+        text objetivos
+        int progresso_percentual
+        string status
+    }
+    
+    FEEDBACK_360 {
+        string id PK
+        string tipo_relacionamento
+        decimal nota_competencia
+        text comentarios
+        boolean anonimo
+    }
+    
+    PESQUISAS_CLIMA {
+        string id PK
+        string titulo
+        int trimestre
+        decimal nps_geral
+        decimal satisfacao_media
+        string status
+    }
+    
+    %% Relacionamentos Core
+    COLABORADORES ||--o{ MAPA_COMPETENCIAS : "possui"
+    COLABORADORES ||--o{ PROJETOS : "gerencia"
+    CLIENTES ||--o{ PROJETOS : "contrata"
+    PROJETOS ||--o{ ATIVIDADES : "gera"
+    COLABORADORES ||--o{ ATIVIDADES : "executa"
+    ATIVIDADES }o--|| CLIENTES : "atende"
+    
+    %% Relacionamentos RH
+    COLABORADORES ||--o{ AVALIACOES_PERFORMANCE : "recebe"
+    COLABORADORES ||--o{ PLANO_QUARTER : "possui"
+    COLABORADORES ||--o{ FEEDBACK_360 : "avalia/recebe"
+    COLABORADORES }o--o{ PESQUISAS_CLIMA : "participa"
 ```
 
 ### 🛡️ Sistema de Permissões LGPD
+
+```mermaid
+flowchart TD
+    subgraph "🔐 Níveis de Acesso LGPD"
+        A["👥 PÚBLICO<br/>Dados Básicos"] 
+        B["👨‍💼 GESTOR<br/>Equipe + Avaliações"]
+        C["🏢 RH + CVO<br/>Acesso Total"]
+    end
+    
+    subgraph "📊 Dados Acessíveis"
+        A --> A1["• Nome<br/>• Cargo<br/>• Departamento<br/>• Competências"]
+        B --> B1["• Dados Públicos<br/>• Avaliações da Equipe<br/>• PDIs da Equipe<br/>• Atividades Atribuídas"]
+        C --> C1["• Todos os Dados<br/>• Salários<br/>• Feedback 360<br/>• Pesquisas Clima"]
+    end
+    
+    subgraph "🛡️ Proteções LGPD"
+        D["🔒 Dados Sensíveis"]
+        D --> D1["💰 Financeiros<br/>📊 Avaliações<br/>🔄 Feedback 360<br/>📋 Clima Organizacional"]
+    end
+    
+    C -.-> D
+    B -.-> D
+    A -.-> D
+    
+    style A fill:#e8f5e8,stroke:#4caf50
+    style B fill:#fff3e0,stroke:#ff9800
+    style C fill:#ffebee,stroke:#f44336
+    style D fill:#f3e5f5,stroke:#9c27b0
+```
 
 #### **3 Níveis de Acesso:**
 1. **Público** - Dados básicos de colaboradores

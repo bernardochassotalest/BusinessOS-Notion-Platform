@@ -9,6 +9,24 @@
 
 ## 📊 Status Geral do Projeto
 
+```mermaid
+gantt
+    title BusinessOS Implementation Timeline
+    dateFormat  YYYY-MM-DD
+    section Fase 1 - Core System
+    Sistema Core (5 bases)           :done, fase1, 2025-09-07, 1d
+    section Fase 1.5 - Security
+    Sistema Permissões LGPD          :done, fase15, 2025-09-07, 1d
+    section Fase 2 - RH Expansion
+    Expansão RH (4 bases)            :done, fase2, 2025-09-07, 1d
+    section Operacionalização
+    Semana 08/09-12/09               :active, op1, 2025-09-08, 5d
+    section Fase 3 - Automações
+    Automações Avançadas             :fase3, 2025-09-15, 5d
+    section Fase 4 - Otimização
+    Performance & Otimização         :fase4, 2025-09-22, 5d
+```
+
 ### ✅ Fases Concluídas
 - **Fase 1**: Sistema Core (5 bases) - ✅ CONCLUÍDA em 07/09/2025
 - **Fase 1.5**: Sistema de Permissões LGPD - ✅ CONCLUÍDA em 07/09/2025
@@ -69,10 +87,41 @@
 
 ## 📅 CRONOGRAMA SEMANAL - JORNADA DO COLABORADOR E CLIENTE
 
-### 📋 SEMANA 08/09 - 12/09/2025: IMPLEMENTAÇÃO DAS JORNADAS
-**Foco:** Operacionalização completa das jornadas do colaborador e cliente
+### 🗓️ SEMANA 08/09 - 12/09/2025 - OPERACIONALIZAÇÃO
+**Período:** Segunda a Sexta-feira  
+**Objetivo:** Operacionalizar completamente as jornadas do colaborador e cliente  
+**Total:** 40 horas de atividades estruturadas
 
-#### **DIA 08/09 - SEGUNDA-FEIRA** 🎯 PLANEJADO
+```mermaid
+gantt
+    title Semana de Operacionalização 08/09-12/09
+    dateFormat  YYYY-MM-DD
+    section Segunda 08/09
+    Onboarding Setup                 :done, on1, 2025-09-08, 2h
+    Avaliações Performance           :done, av1, 2025-09-08, 2h
+    PDI Setup                        :done, pdi1, 2025-09-08, 1h
+    Pipeline Vendas                  :done, pip1, 2025-09-08, 2h
+    Projetos Estruturação           :done, proj1, 2025-09-08, 1h
+    section Terça 09/09
+    Feedback 360                     :done, f360, 2025-09-09, 2h
+    Pesquisas Clima                  :done, clima, 2025-09-09, 2h
+    Atividades CS                    :active, cs1, 2025-09-09, 2h
+    Dashboards Executivos            :active, dash1, 2025-09-09, 2h
+    section Quarta 10/09
+    Automações Workflow              :auto1, 2025-09-10, 3h
+    Integrações API                  :int1, 2025-09-10, 3h
+    Testes Validação                 :test1, 2025-09-10, 2h
+    section Quinta 11/09
+    Treinamento Equipe               :train1, 2025-09-11, 4h
+    Documentação Final               :doc1, 2025-09-11, 2h
+    Go-Live Preparação               :prep1, 2025-09-11, 2h
+    section Sexta 12/09
+    Go-Live Execução                 :live1, 2025-09-12, 4h
+    Monitoramento Inicial            :mon1, 2025-09-12, 2h
+    Retrospectiva Semana             :retro1, 2025-09-12, 2h
+```
+
+**SEGUNDA-FEIRA** 🎯 PLANEJADO
 **Total:** 8 horas (início da operacionalização)
 
 ##### **🧑‍💼 JORNADA DO COLABORADOR (5h)**

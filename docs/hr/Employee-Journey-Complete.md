@@ -14,21 +14,54 @@
 Implementar uma jornada completa do colaborador no BusinessOS, cobrindo desde o onboarding até o offboarding, com foco em desenvolvimento, performance e bem-estar.
 
 ### Escopo Atual vs Expandido
-```
-📊 COBERTURA ATUAL: 30%
-├── ✅ Gestão de competências técnicas
-├── ✅ Alocação em projetos
-├── ✅ Disponibilidade básica
-└── ❌ 70% da jornada não coberta
 
-🎯 COBERTURA EXPANDIDA: 100%
-├── ✅ Onboarding estruturado
-├── ✅ Desenvolvimento e carreira
-├── ✅ Gestão de performance
-├── ✅ Bem-estar e engajamento
-├── ✅ Feedback contínuo
-└── ✅ Offboarding completo
+```mermaid
+journey
+    title Jornada Completa do Colaborador - BusinessOS
+    section Pré-Admissão
+      Processo Seletivo: 5: Recrutamento
+      Aprovação Final: 5: RH
+    section Onboarding
+      Documentação: 3: RH
+      Setup Técnico: 4: TI
+      Apresentação Equipe: 5: Gestor
+      Treinamento Inicial: 4: RH, Gestor
+    section Desenvolvimento
+      Mapeamento Competências: 5: RH, Colaborador
+      PDI Criação: 4: Gestor, Colaborador
+      Treinamentos: 4: RH, Colaborador
+      Mentoria: 5: Mentor, Colaborador
+    section Performance
+      Avaliação Trimestral: 4: Gestor, Colaborador
+      Feedback 360: 5: Equipe, Colaborador
+      Plano Melhoria: 3: Gestor, Colaborador
+    section Engajamento
+      Pesquisa Clima: 4: RH, Colaborador
+      One-on-One: 5: Gestor, Colaborador
+      Reconhecimento: 5: Gestor, Equipe
+    section Carreira
+      Plano Carreira: 4: RH, Colaborador
+      Promoções: 5: RH, Gestor
+      Mobilidade Interna: 4: RH, Colaborador
+    section Offboarding
+      Entrevista Saída: 3: RH, Colaborador
+      Transição Conhecimento: 4: Equipe, Colaborador
+      Finalização: 3: RH, TI
 ```
+
+**📊 COBERTURA ATUAL: 30%**
+- ✅ Gestão de competências técnicas
+- ✅ Alocação em projetos
+- ✅ Disponibilidade básica
+- ❌ 70% da jornada não coberta
+
+**🎯 COBERTURA EXPANDIDA: 100%**
+- ✅ Onboarding estruturado
+- ✅ Desenvolvimento e carreira
+- ✅ Gestão de performance
+- ✅ Bem-estar e engajamento
+- ✅ Feedback contínuo
+- ✅ Offboarding completo
 
 ---
 

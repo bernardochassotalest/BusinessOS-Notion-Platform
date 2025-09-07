@@ -11,6 +11,47 @@
 
 Sistema operacional de negócios centralizado no Notion que integra completamente a gestão da jornada do cliente e colaborador através de bases de dados relacionais interconectadas.
 
+```mermaid
+graph TB
+    subgraph "🏢 BusinessOS Architecture"
+        subgraph "👥 Core Bases"
+            COL["👤 COLABORADORES<br/>Gestão de Pessoas"]
+            CLI["🏢 CLIENTES<br/>Pipeline Comercial"]
+            PRJ["📋 PROJETOS<br/>Gestão de Entregas"]
+            MAP["🎯 MAPA_COMPETENCIAS<br/>Skills & Tools"]
+            ATV["⚡ ATIVIDADES<br/>Customer Success"]
+        end
+        
+        subgraph "🧑‍💼 RH Expansion"
+            AVL["📊 AVALIACOES_PERFORMANCE<br/>Performance Reviews"]
+            PDI["📈 PLANO_QUARTER<br/>Development Plans"]
+            F360["🔄 FEEDBACK_360<br/>Multi-directional Feedback"]
+            PES["📋 PESQUISAS_CLIMA<br/>Climate Surveys"]
+        end
+    end
+    
+    %% Relacionamentos Core
+    COL ---|"1:N"| PRJ
+    CLI ---|"1:N"| PRJ
+    PRJ ---|"1:N"| ATV
+    COL ---|"N:M"| MAP
+    ATV ---|"N:1"| CLI
+    ATV ---|"N:1"| COL
+    
+    %% Relacionamentos RH
+    COL ---|"1:N"| AVL
+    COL ---|"1:N"| PDI
+    COL ---|"1:N"| F360
+    COL ---|"N:M"| PES
+    
+    %% Styling
+    classDef coreBase fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef rhBase fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+    
+    class COL,CLI,PRJ,MAP,ATV coreBase
+    class AVL,PDI,F360,PES rhBase
+```
+
 ### ✅ Status Atual
 - **9 Bases de Dados** funcionais (5 Core + 4 RH)
 - **Sistema de Permissões LGPD** ativo
