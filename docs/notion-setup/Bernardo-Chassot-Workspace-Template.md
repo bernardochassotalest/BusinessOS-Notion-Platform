@@ -310,7 +310,7 @@ Como fundador da empresa, o processo de onboarding foi orgânico e evolutivo, se
 ### **Passo 4: Conectar com Bases Centrais**
 - Linkar com base COLABORADORES
 - Sincronizar com AVALIACOES_PERFORMANCE
-- Conectar com PDI_COLABORADORES
+- Conectar com PLANO_QUARTER
 - Integrar com FEEDBACK_360
 
 ### **Passo 5: Testar Funcionalidades**

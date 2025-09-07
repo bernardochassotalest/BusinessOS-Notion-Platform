@@ -69,8 +69,8 @@ Implementar uma jornada completa do colaborador no BusinessOS, cobrindo desde o 
 | Plano Ação | Long Text | ✗ | Próximos passos |
 | Status | Select | ✓ | Agendada, Em Andamento, Concluída |
 
-#### **3. PDI_COLABORADORES**
-**Propósito**: Planos de Desenvolvimento Individual estruturados
+#### **3. PLANO_QUARTER**
+**Propósito**: Planos de Desenvolvimento Individual estruturados por trimestre
 
 | Propriedade | Tipo | Obrigatório | Descrição |
 |-------------|------|-------------|-----------|

@@ -153,9 +153,9 @@ Definir níveis de acesso e permissões para informações individuais de colabo
 ├── Restrição: Anonimato dos avaliadores
 └── Exceção: CVO vê origem dos feedbacks
 
-🔒 PDI_COLABORADORES
+🔒 PLANO_QUARTER
 ├── Acesso: RH + Gestor + Próprio Colaborador
-├── Restrição: PDIs são individuais
+├── Restrição: Planos são individuais
 └── Compartilhamento: Apenas com autorização
 
 🔒 PESQUISAS_CLIMA
@@ -197,7 +197,7 @@ Definir níveis de acesso e permissões para informações individuais de colabo
 ✅ PROJETOS (projetos da equipe)
 ✅ ATIVIDADES (atividades da equipe)
 ✅ AVALIACOES_PERFORMANCE (equipe)
-✅ PDI_COLABORADORES (equipe)
+✅ PLANO_QUARTER (equipe)
 ❌ Dados financeiros e pessoais
 ```
 

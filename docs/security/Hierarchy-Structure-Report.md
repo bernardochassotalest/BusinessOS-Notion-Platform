@@ -233,7 +233,7 @@
 ### **Fase 3: Bases Complementares**
 1. **AVALIACOES_PERFORMANCE** - Histórico de avaliações
 2. **FEEDBACK_360** - Sistema de feedback multidirecional
-3. **PDI_COLABORADORES** - Planos de desenvolvimento individuais
+3. **PLANO_QUARTER** - Planos de desenvolvimento individuais por trimestre
 4. **PESQUISAS_CLIMA** - Satisfação e engajamento
 
 ### **Monitoramento Contínuo**

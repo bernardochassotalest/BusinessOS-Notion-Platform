@@ -221,8 +221,8 @@ Implementar um sistema operacional de negócios centralizado no Notion que integ
 | Pontos Melhoria | Long Text | ✓ | Áreas de desenvolvimento |
 | Status | Select | ✓ | Agendada, Em Andamento, Concluída |
 
-#### Base: PDI_COLABORADORES
-**Propósito**: Planos de Desenvolvimento Individual estruturados
+#### Base: PLANO_QUARTER
+**Propósito**: Planos de Desenvolvimento Individual estruturados por trimestre
 
 | Propriedade | Tipo | Obrigatório | Descrição |
 |-------------|------|-------------|-----------|

@@ -76,7 +76,7 @@ Colaborador com nota "Abaixo":
 ### **3. Desenvolvimento de Competências → Expansão de Serviços**
 ```
 🎓 CRESCIMENTO ESTRATÉGICO:
-PDI_COLABORADORES → NOVOS_SERVICOS
+PLANO_QUARTER → NOVOS_SERVICOS
 
 Exemplo Real:
 ├── 5 colaboradores desenvolvem AWS
@@ -140,7 +140,7 @@ NPS Interno Baixo (<7.0):
 👥 JORNADA COLABORADOR (7 bases):
 ├── ONBOARDING_CHECKLIST
 ├── AVALIACOES_PERFORMANCE
-├── PDI_COLABORADORES
+├── PLANO_QUARTER
 ├── FEEDBACK_360
 ├── PESQUISAS_CLIMA
 ├── OFFBOARDING_PROCESS
