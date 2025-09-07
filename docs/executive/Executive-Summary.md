@@ -21,11 +21,32 @@ A Alest opera com **ineficiências críticas** que consomem 11% da receita anual
 └── Oportunidades comerciais perdidas: R$ 240.000/ano
 ```
 
+### **Impacto Financeiro Quantificado - FASE 1**
+```
+💰 PERDAS ANUAIS IDENTIFICADAS: R$ 600.000
+├── Alto turnover (rotatividade excessiva): R$ 240.000/ano
+├── Baixa produtividade (falta desenvolvimento): R$ 180.000/ano
+├── Contratações inadequadas (processo falho): R$ 120.000/ano
+└── Clima organizacional ruim (baixo engajamento): R$ 60.000/ano
+```
+
 ### **Causa Raiz**
 - **Dados fragmentados** em 8+ sistemas (Excel, Google Sheets, WhatsApp, Email)
 - **Processos manuais** para alocação de equipes (5-8 dias vs 2 dias ideal)
 - **Falta de visibilidade** executiva em tempo real
 - **Decisões baseadas** em informações desatualizadas
+
+## 🎯 **OPORTUNIDADE DE NEGÓCIO - FASE 1: JORNADA DO COLABORADOR**
+
+### Problema Atual - Foco RH e Pessoas
+A Alest.com.br enfrenta ineficiências críticas na gestão de pessoas que impactam diretamente a produtividade e retenção:
+
+- **Onboarding Desestruturado**: Novos colaboradores sem processo padronizado
+- **Gestão de Performance Inconsistente**: Avaliações sem critério ou histórico
+- **Desenvolvimento de Carreira Inexistente**: Falta de PDIs e trilhas claras
+- **Clima Organizacional Não Monitorado**: Sem pesquisas ou acompanhamento
+- **Offboarding Sem Estrutura**: Perda de conhecimento e feedback
+- **Alta Rotatividade**: Turnover acima da média do mercado
 
 ## 💡 **SOLUÇÃO PROPOSTA**
 

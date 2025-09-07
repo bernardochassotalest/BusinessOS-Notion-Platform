@@ -22,8 +22,9 @@ Implementar um sistema operacional de negócios centralizado no Notion que integ
 
 ## 2. Arquitetura de Dados
 
-### 2.1 Modelo de Dados Relacional
+### 2.1 Modelo de Dados Relacional Expandido
 
+#### **Core Business (5 Bases Originais)**
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
 │    CLIENTES     │◄──►│    PROJETOS     │◄──►│ COLABORADORES   │
@@ -54,6 +55,44 @@ Implementar um sistema operacional de negócios centralizado no Notion que integ
                         │ • Ferramenta    │
                         │ • Nível Prof.   │
                         └─────────────────┘
+```
+
+#### **Jornada do Colaborador (7 Bases Adicionais)**
+```
+                        ┌─────────────────┐
+                        │ COLABORADORES   │◄──┐
+                        │    (CORE)       │   │
+                        └─────────────────┘   │
+                                 │            │
+                    ┌────────────┼────────────┼────────────┐
+                    │            │            │            │
+                    ▼            ▼            ▼            ▼
+         ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐
+         │  ONBOARDING     │ │   AVALIAÇÕES    │ │      PDI        │ │   FEEDBACK      │
+         │   CHECKLIST     │ │  PERFORMANCE    │ │ COLABORADORES   │ │     360         │
+         │                 │ │                 │ │                 │ │                 │
+         │ • Colaborador   │ │ • Colaborador   │ │ • Colaborador   │ │ • Avaliado      │
+         │ • Etapa         │ │ • Avaliador     │ │ • Ano Vigência  │ │ • Avaliador     │
+         │ • Responsável   │ │ • Período       │ │ • Objetivo      │ │ • Tipo Relação  │
+         │ • Status        │ │ • Metas         │ │ • Competência   │ │ • Categoria     │
+         │ • Data Limite   │ │ • Resultados    │ │ • Ações         │ │ • Feedback +/-  │
+         └─────────────────┘ │ • Nota          │ │ • Progresso     │ │ • Sugestões     │
+                             └─────────────────┘ └─────────────────┘ └─────────────────┘
+                                      │                   │                   │
+                    ┌─────────────────┼───────────────────┼───────────────────┘
+                    │                 │                   │
+                    ▼                 ▼                   ▼
+         ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐
+         │   PESQUISAS     │ │  OFFBOARDING    │ │    TRILHAS      │
+         │     CLIMA       │ │    PROCESS      │ │   CARREIRA      │
+         │                 │ │                 │ │                 │
+         │ • Colaborador   │ │ • Colaborador   │ │ • Nome Trilha   │
+         │ • Data Pesquisa │ │ • Tipo Saída    │ │ • Cargo Origem  │
+         │ • Tipo Pesquisa │ │ • Data Saída    │ │ • Cargo Destino │
+         │ • Satisfação    │ │ • Motivo        │ │ • Competências  │
+         │ • NPS           │ │ • Entrevista    │ │ • Tempo Médio   │
+         │ • Comentários   │ │ • Status        │ │ • Critérios     │
+         └─────────────────┘ └─────────────────┘ └─────────────────┘
 ```
 
 ### 2.2 Especificação Detalhada das Bases
@@ -87,18 +126,25 @@ Implementar um sistema operacional de negócios centralizado no Notion que integ
 | Progresso | Number | ✗ | Percentual de conclusão |
 | Orçamento | Number | ✗ | Valor do projeto |
 
-#### Base: COLABORADORES
-**Propósito**: Diretório completo de talentos
+#### Base: COLABORADORES (Expandida)
+**Propósito**: Gestão completa de recursos humanos e jornada do colaborador
 
 | Propriedade | Tipo | Obrigatório | Descrição |
 |-------------|------|-------------|-----------|
-| Nome do Colaborador | Title | ✓ | Nome completo |
-| Foto | Files & Media | ✗ | Foto do perfil |
-| Cargo | Select | ✓ | Posição na empresa |
-| Competências | Relation → Mapa Competências | ✓ | Habilidades técnicas |
-| Email | Email | ✓ | Contato principal |
+| Nome do Colaborador | Title | ✓ | Identificador principal |
+| Foto | Files & Media | ✗ | Avatar do colaborador |
+| Cargo | Select | ✓ | Júnior, Pleno, Sênior, Especialista |
+| Competências | Relation → Mapa Competências | ✗ | Skills técnicas |
+| Email | Email | ✓ | Contato profissional |
 | Disponibilidade | Select | ✓ | Disponível, Ocupado, Férias |
-| Senioridade | Select | ✓ | Júnior, Pleno, Sênior, Especialista |
+| Senioridade | Select | ✓ | Nível de experiência |
+| Data Admissão | Date | ✓ | Início na empresa |
+| Status Onboarding | Relation → Onboarding Checklist | ✗ | Processo integração |
+| Gestor Direto | Relation → Colaboradores | ✓ | Hierarquia organizacional |
+| Avaliações | Relation → Avaliações Performance | ✗ | Histórico performance |
+| PDI Ativo | Relation → PDI Colaboradores | ✗ | Plano desenvolvimento |
+| NPS Atual | Number | ✗ | Última pesquisa clima |
+| Risco Turnover | Select | ✗ | Baixo, Médio, Alto |
 
 #### Base: MAPA DE COMPETÊNCIAS
 **Propósito**: Matriz detalhada de habilidades
@@ -127,18 +173,131 @@ Implementar um sistema operacional de negócios centralizado no Notion que integ
 12. Zoom Workplace
 
 #### Base: ATIVIDADES
-**Propósito**: Rastreamento de tarefas e interações
+**Propósito**: Controle de tarefas e atividades de CS
 
 | Propriedade | Tipo | Obrigatório | Descrição |
 |-------------|------|-------------|-----------|
 | Tarefa | Title | ✓ | Descrição da atividade |
-| Responsável | Relation → Colaboradores | ✓ | Executor da tarefa |
+| Responsável | Relation → Colaboradores | ✓ | Quem executa |
 | Cliente | Relation → Clientes | ✓ | Cliente relacionado |
-| Status | Select | ✓ | A Fazer, Fazendo, Feito |
-| Tipo | Select | ✓ | Reunião CS, Health Check, Suporte |
-| Data Prevista | Date | ✓ | Quando deve ser executada |
-| Data Execução | Date | ✗ | Quando foi executada |
-| Duração | Number | ✗ | Tempo gasto (horas) |
+| Status | Select | ✓ | Pendente, Em Andamento, Concluído |
+| Tipo | Select | ✓ | CS, Comercial, Técnica, Administrativa |
+| Data Limite | Date | ✓ | Prazo para conclusão |
+| Prioridade | Select | ✓ | Baixa, Média, Alta, Crítica |
+| Observações | Long Text | ✗ | Detalhes adicionais |
+
+---
+
+### 2.3 Bases da Jornada do Colaborador (7 Adicionais)
+
+#### Base: ONBOARDING_CHECKLIST
+**Propósito**: Gestão estruturada do processo de integração
+
+| Propriedade | Tipo | Obrigatório | Descrição |
+|-------------|------|-------------|-----------|
+| Colaborador | Relation → Colaboradores | ✓ | Novo colaborador |
+| Etapa | Select | ✓ | Documentação, Setup, Treinamento, Mentoria |
+| Descrição | Text | ✓ | Detalhes da etapa |
+| Responsável | Relation → Colaboradores | ✓ | Quem deve executar |
+| Status | Select | ✓ | Pendente, Em Andamento, Concluído |
+| Data Limite | Date | ✓ | Prazo para conclusão |
+| Data Conclusão | Date | ✗ | Quando foi finalizado |
+| Observações | Long Text | ✗ | Notas e comentários |
+
+#### Base: AVALIACOES_PERFORMANCE
+**Propósito**: Ciclos estruturados de avaliação de desempenho
+
+| Propriedade | Tipo | Obrigatório | Descrição |
+|-------------|------|-------------|-----------|
+| Colaborador | Relation → Colaboradores | ✓ | Avaliado |
+| Avaliador | Relation → Colaboradores | ✓ | Gestor responsável |
+| Período | Select | ✓ | Trimestral, Semestral, Anual |
+| Data Início | Date | ✓ | Início do período |
+| Data Fim | Date | ✓ | Fim do período |
+| Metas Definidas | Long Text | ✓ | Objetivos do período |
+| Resultados Alcançados | Long Text | ✓ | O que foi entregue |
+| Nota Performance | Select | ✓ | Abaixo, Atende, Supera Expectativas |
+| Pontos Fortes | Long Text | ✓ | Competências destacadas |
+| Pontos Melhoria | Long Text | ✓ | Áreas de desenvolvimento |
+| Status | Select | ✓ | Agendada, Em Andamento, Concluída |
+
+#### Base: PDI_COLABORADORES
+**Propósito**: Planos de Desenvolvimento Individual estruturados
+
+| Propriedade | Tipo | Obrigatório | Descrição |
+|-------------|------|-------------|-----------|
+| Colaborador | Relation → Colaboradores | ✓ | Pessoa em desenvolvimento |
+| Ano Vigência | Number | ✓ | Ano do PDI |
+| Objetivo Desenvolvimento | Text | ✓ | Meta principal |
+| Competência Alvo | Relation → Mapa Competências | ✓ | Skill a desenvolver |
+| Ações Planejadas | Long Text | ✓ | Como vai desenvolver |
+| Prazo | Date | ✓ | Data limite |
+| Status | Select | ✓ | Planejado, Em Andamento, Concluído |
+| Progresso | Progress | ✗ | % de conclusão |
+| Resultado Final | Long Text | ✗ | Avaliação final |
+
+#### Base: FEEDBACK_360
+**Propósito**: Sistema de feedback contínuo multidirecional
+
+| Propriedade | Tipo | Obrigatório | Descrição |
+|-------------|------|-------------|-----------|
+| Colaborador Avaliado | Relation → Colaboradores | ✓ | Quem recebe feedback |
+| Avaliador | Relation → Colaboradores | ✓ | Quem dá feedback |
+| Tipo Relação | Select | ✓ | Gestor, Par, Subordinado, Cliente |
+| Data Feedback | Date | ✓ | Quando foi dado |
+| Categoria | Select | ✓ | Técnica, Comportamental, Liderança |
+| Feedback Positivo | Long Text | ✓ | Pontos fortes |
+| Feedback Construtivo | Long Text | ✗ | Pontos de melhoria |
+| Sugestões | Long Text | ✗ | Recomendações |
+| Status | Select | ✓ | Novo, Lido, Discutido, Arquivado |
+
+#### Base: PESQUISAS_CLIMA
+**Propósito**: Monitoramento de satisfação e engajamento
+
+| Propriedade | Tipo | Obrigatório | Descrição |
+|-------------|------|-------------|-----------|
+| Colaborador | Relation → Colaboradores | ✓ | Respondente |
+| Data Pesquisa | Date | ✓ | Quando respondeu |
+| Tipo Pesquisa | Select | ✓ | Pulse, Trimestral, Anual, Saída |
+| Satisfação Geral | Rating | ✓ | 1-10 |
+| Satisfação Gestor | Rating | ✓ | 1-10 |
+| Satisfação Equipe | Rating | ✓ | 1-10 |
+| Work Life Balance | Rating | ✓ | 1-10 |
+| Crescimento Carreira | Rating | ✓ | 1-10 |
+| Recomendaria Empresa | Rating | ✓ | NPS 1-10 |
+| Comentários | Long Text | ✗ | Feedback aberto |
+| Anônimo | Checkbox | ✓ | Resposta anônima |
+
+#### Base: OFFBOARDING_PROCESS
+**Propósito**: Gestão estruturada do desligamento
+
+| Propriedade | Tipo | Obrigatório | Descrição |
+|-------------|------|-------------|-----------|
+| Colaborador | Relation → Colaboradores | ✓ | Quem está saindo |
+| Tipo Saída | Select | ✓ | Demissão, Pedido, Aposentadoria |
+| Data Comunicação | Date | ✓ | Quando foi comunicado |
+| Data Último Dia | Date | ✓ | Último dia de trabalho |
+| Motivo Saída | Long Text | ✓ | Razão do desligamento |
+| Gestor Responsável | Relation → Colaboradores | ✓ | Quem conduz processo |
+| Entrevista Saída | Checkbox | ✓ | Foi realizada |
+| Transferência Conhecimento | Checkbox | ✓ | Foi feita |
+| Revogação Acessos | Checkbox | ✓ | Sistemas desabilitados |
+| Status | Select | ✓ | Iniciado, Em Andamento, Concluído |
+
+#### Base: TRILHAS_CARREIRA
+**Propósito**: Mapeamento de caminhos de crescimento
+
+| Propriedade | Tipo | Obrigatório | Descrição |
+|-------------|------|-------------|-----------|
+| Nome Trilha | Title | ✓ | Ex: "Dev Frontend Jr → Sr" |
+| Cargo Origem | Select | ✓ | Posição inicial |
+| Cargo Destino | Select | ✓ | Posição alvo |
+| Competências Necessárias | Relation → Mapa Competências | ✓ | Skills obrigatórias |
+| Tempo Médio | Number | ✓ | Meses para progressão |
+| Pré-requisitos | Long Text | ✓ | Condições necessárias |
+| Critérios Promoção | Long Text | ✓ | Como é avaliado |
+| Responsável RH | Relation → Colaboradores | ✓ | Quem acompanha |
+| Ativa | Checkbox | ✓ | Trilha disponível |
 
 ## 3. Arquitetura de Integração
 

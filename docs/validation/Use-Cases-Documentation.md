@@ -188,11 +188,15 @@
 5. Salva alterações
 6. Sistema atualiza dashboard de talentos
 7. Recalcula disponibilidade para novos projetos
+8. **Se competência relacionada a PDI ativo:**
+   - Atualiza progresso do PDI
+   - Notifica gestor sobre evolução
 
 **Regras de Negócio:**
 - Apenas ferramentas da lista oficial podem ser adicionadas
 - Níveis: Básico → Intermediário → Avançado
 - Histórico de mudanças deve ser mantido
+- Evolução de competência impacta avaliação de performance
 
 ### UC008: Buscar Colaborador por Competência
 **Ator Principal:** Project Manager  
@@ -246,32 +250,219 @@
 
 ## 6. Casos de Uso - Relatórios e Analytics
 
-### UC011: Gerar Relatório de Performance
-**Ator Principal:** Liderança  
-**Objetivo:** Analisar métricas de performance da operação  
+### UC011: Monitorar Performance da Equipe
+**Ator Principal:** Gestor  
+**Objetivo:** Acompanhar produtividade e qualidade da equipe  
 
 **Fluxo Principal:**
-1. Líder acessa seção de Relatórios
+1. Gestor acessa Dashboard de Performance
 2. Seleciona período de análise
-3. Define métricas de interesse:
-   - Tempo médio por fase
-   - Taxa de conversão entre fases
-   - Utilização da equipe
-   - Satisfação do cliente
-4. Sistema coleta dados das bases
-5. Calcula métricas solicitadas
-6. Gera visualizações (gráficos/tabelas)
-7. Exibe relatório interativo
-8. Permite export em PDF/Excel
+3. Visualiza métricas por colaborador:
+   - Atividades concluídas no prazo
+   - Qualidade das entregas
+   - Feedback dos clientes
+4. Identifica colaboradores com performance abaixo do esperado
+5. **Se necessário:** Agenda 1:1 para feedback
+6. Define planos de ação individuais
+7. Monitora evolução nas próximas semanas
 
-**Métricas Chave:**
-- **Tempo médio na pré-venda:** < 7 dias
-- **Taxa de conversão pré-venda → implantação:** > 80%
-- **Tempo médio de implantação:** < 30 dias
-- **Taxa de sucesso em implantação:** > 95%
-- **NPS médio:** > 8
+**Regras de Negócio:**
+- Métricas devem ser objetivas e mensuráveis
+- Feedback deve ser construtivo e específico
+- Planos de ação devem ter prazos definidos
 
----
+## 5. Casos de Uso - Jornada do Colaborador
+
+### UC012: Executar Onboarding de Novo Colaborador
+**Ator Principal:** RH / Gestor  
+**Objetivo:** Integrar novo colaborador de forma estruturada  
+
+**Fluxo Principal:**
+1. RH recebe confirmação de contratação
+2. Sistema cria automaticamente checklist de onboarding
+3. **Etapa 1 - Documentação:**
+   - RH solicita documentos necessários
+   - Colaborador envia via sistema
+   - RH valida e aprova documentação
+4. **Etapa 2 - Setup Técnico:**
+   - TI cria acessos aos sistemas
+   - Configura equipamentos
+   - Testa conectividade
+5. **Etapa 3 - Treinamentos:**
+   - RH agenda treinamento institucional
+   - Gestor agenda treinamento técnico
+   - Colaborador completa módulos obrigatórios
+6. **Etapa 4 - Mentoria:**
+   - Sistema designa buddy automaticamente
+   - Agenda primeira reunião
+   - Define cronograma de acompanhamento
+7. Sistema monitora progresso e envia lembretes
+8. **Após 30 dias:** Avaliação de adaptação
+
+**Regras de Negócio:**
+- Cada etapa deve ser concluída antes da próxima
+- Responsáveis recebem notificações automáticas
+- Atrasos > 3 dias geram alertas para RH
+- Buddy deve ser do mesmo time/área
+
+### UC013: Conduzir Ciclo de Avaliação de Performance
+**Ator Principal:** Gestor / RH  
+**Objetivo:** Avaliar desempenho e definir desenvolvimento  
+
+**Fluxo Principal:**
+1. Sistema dispara início do ciclo automaticamente
+2. **Auto-avaliação:**
+   - Colaborador recebe formulário
+   - Avalia próprio desempenho vs metas
+   - Identifica pontos fortes e melhorias
+3. **Avaliação do Gestor:**
+   - Gestor acessa histórico do colaborador
+   - Analisa entregas e feedback recebido
+   - Preenche avaliação estruturada
+4. **Reunião de Feedback:**
+   - Sistema agenda reunião automaticamente
+   - Gestor e colaborador discutem avaliações
+   - Alinham expectativas e próximos passos
+5. **Definição de Nota:**
+   - Gestor define nota final consensual
+   - Sistema registra justificativa
+6. **Plano de Desenvolvimento:**
+   - Identificam gaps de competência
+   - Criam PDI para próximo período
+   - Definem metas específicas
+7. RH valida e aprova avaliação
+
+**Regras de Negócio:**
+- Ciclos trimestrais obrigatórios
+- Auto-avaliação deve preceder avaliação do gestor
+- Notas "Abaixo" requerem plano de melhoria
+- PDI deve ter pelo menos 2 objetivos
+
+### UC014: Gerenciar Plano de Desenvolvimento Individual (PDI)
+**Ator Principal:** Colaborador / Gestor  
+**Objetivo:** Estruturar e acompanhar crescimento profissional  
+
+**Fluxo Principal:**
+1. **Criação do PDI:**
+   - Colaborador identifica competência a desenvolver
+   - Define objetivo específico e mensurável
+   - Propõe ações de desenvolvimento
+   - Gestor revisa e aprova
+2. **Execução:**
+   - Colaborador executa ações planejadas
+   - Atualiza progresso mensalmente
+   - Documenta aprendizados e evidências
+3. **Acompanhamento:**
+   - Sistema envia lembretes automáticos
+   - Gestor monitora evolução
+   - Realiza check-ins regulares
+4. **Avaliação Final:**
+   - Colaborador apresenta resultados
+   - Gestor valida competência desenvolvida
+   - Sistema atualiza mapa de competências
+5. **Próximos Passos:**
+   - Avaliam oportunidades de aplicação
+   - Definem novos objetivos se necessário
+
+**Regras de Negócio:**
+- PDI deve estar alinhado com trilha de carreira
+- Progresso < 30% em 3 meses gera alerta
+- Competência só é atualizada após validação
+- Máximo 3 PDIs simultâneos por colaborador
+
+### UC015: Processar Feedback 360 Graus
+**Ator Principal:** RH / Colaborador  
+**Objetivo:** Coletar e processar feedback multidirecional  
+
+**Fluxo Principal:**
+1. **Solicitação de Feedback:**
+   - Colaborador ou gestor solicita feedback 360
+   - Sistema identifica stakeholders relevantes
+   - Envia convites automáticos
+2. **Coleta de Feedback:**
+   - Avaliadores recebem formulário estruturado
+   - Preenchem feedback por categoria
+   - Sistema garante anonimato quando solicitado
+3. **Consolidação:**
+   - Sistema compila feedbacks recebidos
+   - Identifica padrões e tendências
+   - Gera relatório consolidado
+4. **Entrega e Discussão:**
+   - RH agenda sessão de feedback
+   - Apresenta resultados de forma construtiva
+   - Colaborador e gestor discutem insights
+5. **Plano de Ação:**
+   - Definem ações baseadas no feedback
+   - Criam cronograma de implementação
+   - Agendam follow-up
+
+**Regras de Negócio:**
+- Mínimo 5 avaliadores para feedback válido
+- Feedback confidencial apenas para RH
+- Resultados ficam no histórico do colaborador
+- Follow-up obrigatório em 90 dias
+
+### UC016: Monitorar Clima Organizacional
+**Ator Principal:** RH  
+**Objetivo:** Acompanhar satisfação e engajamento da equipe  
+
+**Fluxo Principal:**
+1. **Pesquisa Pulse (Mensal):**
+   - Sistema envia pesquisa curta automaticamente
+   - Colaboradores respondem anonimamente
+   - Foco em satisfação imediata
+2. **Pesquisa Trimestral:**
+   - Questionário mais abrangente
+   - Inclui NPS interno e sugestões
+   - Análise por área e cargo
+3. **Análise de Resultados:**
+   - Sistema gera dashboards automáticos
+   - Identifica tendências e alertas
+   - Compara com períodos anteriores
+4. **Plano de Ação:**
+   - RH identifica pontos críticos
+   - Define ações de melhoria
+   - Comunica resultados para liderança
+5. **Acompanhamento:**
+   - Monitora impacto das ações
+   - Ajusta estratégias conforme necessário
+
+**Regras de Negócio:**
+- Participação mínima 80% para validade
+- Resultados por área só se >5 respondentes
+- Alertas automáticos para NPS <6
+- Plano de ação obrigatório para scores baixos
+
+### UC017: Executar Processo de Offboarding
+**Ator Principal:** RH / Gestor  
+**Objetivo:** Conduzir desligamento de forma estruturada  
+
+**Fluxo Principal:**
+1. **Comunicação de Saída:**
+   - Gestor/RH registra decisão de desligamento
+   - Sistema cria checklist de offboarding
+   - Define responsabilidades e prazos
+2. **Entrevista de Saída:**
+   - RH agenda entrevista estruturada
+   - Coleta feedback sobre experiência
+   - Documenta motivos e sugestões
+3. **Transferência de Conhecimento:**
+   - Colaborador documenta processos
+   - Transfere responsabilidades
+   - Treina substituto quando aplicável
+4. **Revogação de Acessos:**
+   - TI remove acessos aos sistemas
+   - Colaborador devolve equipamentos
+   - Confirma segurança da informação
+5. **Finalização:**
+   - RH processa documentação final
+   - Atualiza status no sistema
+   - Arquiva informações relevantes
+
+**Regras de Negócio:**
+- Entrevista de saída obrigatória
+- Revogação de acessos no último dia
+- Transferência de conhecimento documentada
 
 ## 7. Matriz de Rastreabilidade
 

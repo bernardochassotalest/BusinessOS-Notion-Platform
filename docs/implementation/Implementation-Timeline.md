@@ -34,7 +34,43 @@ gantt
     Métricas Avançadas              :metrics, after ext, 2d
 ```
 
-## 2. Fase 1: Fundação (09-20 Set 2025)
+## 2. Fase 1: Fundação## 📅 Cronograma Detalhado Expandido
+
+### **FASE 1: CRIAÇÃO DAS BASES CORE (09/09 - 20/09/2025)**
+**Duração:** 2 semanas  
+**Responsável:** Tech Lead + PM
+
+#### Semana 1 (09/09 - 13/09)
+- **Segunda (09/09):** Setup inicial do workspace Notion
+- **Terça (10/09):** Criação da base CLIENTES com propriedades
+- **Quarta (11/09):** Criação da base PROJETOS com relações
+- **Quinta (12/09):** Criação da base COLABORADORES (expandida)
+- **Sexta (13/09):** Criação da base MAPA DE COMPETÊNCIAS
+
+#### Semana 2 (16/09 - 20/09)
+- **Segunda (16/09):** Criação da base ATIVIDADES
+- **Terça (17/09):** Configuração de todas as relações bidirecionais
+- **Quarta (18/09):** Testes de integridade referencial
+- **Quinta (19/09):** Validação com stakeholders
+- **Sexta (20/09):** Ajustes e aprovação final
+
+### **FASE 1.5: BASES JORNADA COLABORADOR (23/09 - 04/10/2025)**
+**Duração:** 2 semanas  
+**Responsável:** Tech Lead + RH
+
+#### Semana 1 (23/09 - 27/09)
+- **Segunda (23/09):** Criação base ONBOARDING_CHECKLIST
+- **Terça (24/09):** Criação base AVALIACOES_PERFORMANCE
+- **Quarta (25/09):** Criação base PDI_COLABORADORES
+- **Quinta (26/09):** Criação base FEEDBACK_360
+- **Sexta (27/09):** Testes das novas bases
+
+#### Semana 2 (30/09 - 04/10)
+- **Segunda (30/09):** Criação base PESQUISAS_CLIMA
+- **Terça (01/10):** Criação base OFFBOARDING_PROCESS
+- **Quarta (02/10):** Criação base TRILHAS_CARREIRA
+- **Quinta (03/10):** Configuração relações com bases existentes
+- **Sexta (04/10):** Validação integrada completa
 
 ### Semana 1: Criação das Bases Principais
 **Período:** 09-13 Setembro 2025  
